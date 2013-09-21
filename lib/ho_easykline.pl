@@ -1,13 +1,5 @@
-# ho_easykline.pl
-#
-# $Id: ho_easykline.pl,v 1.4 2004/09/14 16:49:02 jvunder REL_0_1 $
-#
-# Part of the Hybrid Oper Script Collection
-#
-# Easy K-lines.
-#
-
 use strict;
+use warnings;
 use vars qw(%IRSSI);
 
 use Irssi;

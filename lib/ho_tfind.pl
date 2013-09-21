@@ -1,16 +1,11 @@
-# ho_tfind.pl
-# $Id: ho_tfind.pl,v 1.16 2004/09/02 22:23:18 jvunder REL_0_1 $
-#
-# Provides extended search functionality for the /TRACE command.
-#
-# Part of the Hybrid Oper Script Collection.
-#
+
 # Based on BlackJac's /TFIND and morrow's stat.pl script.
 #
 # Known bugs:
 # * If the output window is closed halfway, the script crashes.
 
 use strict;
+use warnings;
 use vars qw(%IRSSI);
 
 use Irssi;

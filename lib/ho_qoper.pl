@@ -1,15 +1,6 @@
-# ho_qoper.pl
-#
-# $Id: ho_qoper.pl,v 1.8 2004/08/21 10:56:07 jvunder REL_0_1 $
-#
-# Part of the Hybrid Oper Script Collection
-#
-# Quick Oper script - keeps your oper pass in memory and uses it to oper
-# up directly after being connected.
-#
-
 use strict;
 use warnings;
+
 use Irssi;
 use HOSC::again;
 use HOSC::again 'HOSC::Base';

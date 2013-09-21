@@ -1,12 +1,5 @@
-# ho_manage.pl
-#
-# $Id$
-#
-# Part of the Hybrid Oper Script Collection.
-#
-# Manages all HOSC scripts.
-
 use strict;
+use warnings;
 use vars qw(%IRSSI);
 
 use Irssi;

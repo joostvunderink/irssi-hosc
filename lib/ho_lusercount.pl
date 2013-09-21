@@ -1,9 +1,3 @@
-# ho_lusercount.pl
-#
-# $Id: ho_lusercount.pl,v 1.3 2004/08/15 08:53:05 jvunder REL_0_1 $
-#
-# Part of the Hybrid Oper Script Collection.
-#
 # This provides a statusbar item containing the users on the server.
 # It uses /lusers for that, plus usermode +c to increase/decrease the
 # number of users whenever a client (dis)connects.
@@ -22,6 +16,7 @@
 # >> :irc.efnet.nl 255 Garion :I have 10970 clients and 2 servers
 
 use strict;
+use warnings;
 use vars qw(%IRSSI);
 
 # Why doesn't use constant work in my irssi? *confused*

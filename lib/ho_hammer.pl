@@ -1,14 +1,5 @@
-# ho_hammer.pl
-#
-# $Id: ho_hammer.pl,v 1.5 2004/09/11 12:21:49 jvunder REL_0_1 $
-#
-# Part of the Hybrid Oper Script Collection.
-#
-# Looks for hammering clients and acts upon them.
-#
-# TODO: code HOSC::Kliner and use it.
-
 use strict;
+use warnings;
 use vars qw(%IRSSI);
 
 use Irssi;

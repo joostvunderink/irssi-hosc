@@ -1,11 +1,5 @@
-# ho_killreconnect.pl
-# $Id: ho_killreconnect.pl,v 1.6 2004/08/15 08:53:05 jvunder REL_0_1 $
-#
-# Reconnects if you're killed by an oper.
-#
-# Part of the Hybrid Oper Script Collection.
-
 use strict;
+use warnings;
 use vars qw(%IRSSI);
 
 use Irssi;

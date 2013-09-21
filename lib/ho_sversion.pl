@@ -1,9 +1,4 @@
-# ho_sversion.pl
-#
-# $Id: ho_sversion.pl,v 1.3 2004/08/15 08:53:05 jvunder REL_0_1 $
-#
-# Part of the Hybrid Oper Script Collection.
-#
+
 # Provides an easy way to get the version of all linked servers.
 # NOTE: This server only works well for opered clients on a
 # hybrid-compatible network, since it uses the flooding capabilities
@@ -11,9 +6,9 @@
 # Known bugs:
 # * Doing /VERSION <server> while the script is doing its thing doesn't
 #   give any output.
-# * Servers that 
 
 use strict;
+use warnings;
 use vars qw(%IRSSI);
 
 use Irssi;

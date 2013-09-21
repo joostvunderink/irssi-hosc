@@ -1,15 +1,9 @@
-# ho_sping.pl
-#
-# $Id: ho_sping.pl,v 1.2 2004/09/04 11:20:45 jvunder REL_0_1 $
-#
-# Part of the Hybrid Oper Script Collection.
-#
-# Does a latency check of all linked servers on a network.
-#
+
 # Ping choopa from efnet.nl:
 # /quote ping irc.efnet.nl :irc.choopa.net
 
 use strict;
+use warnings;
 use vars qw(%IRSSI);
 
 use Irssi;

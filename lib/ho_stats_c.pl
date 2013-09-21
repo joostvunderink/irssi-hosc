@@ -1,13 +1,5 @@
-# ho_stats_c.pl
-#
-# $Id: ho_stats_c.pl,v 0.1 2006-04-03 05:52:05  dubkat $
-#
-# Part of the Hybrid Oper Script Collection
-#
-# Reformat /stats c
-#
-
 use strict;
+use warnings;
 use vars qw(%IRSSI);
 
 use Irssi;

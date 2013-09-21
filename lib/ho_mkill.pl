@@ -1,14 +1,5 @@
-# ho-mkill.pl
-#
-# $Id: ho_mkill.pl,v 1.8 2004/08/22 20:19:26 jvunder REL_0_1 $
-#
-# Part of the Hybrid Oper Script Collection.
-#
-# This provides a /MKILL command.
-
-# ---------------------------------------------------------------------
-
 use strict;
+use warnings;
 use vars qw(%IRSSI);
 
 use Irssi;

@@ -1,17 +1,8 @@
-# ho_netmon.pl
-#
-# $Id: ho_netmon.pl,v 1.4 2004/09/06 10:29:20 jvunder REL_0_1 $
-#
-# Part of the Hybrid Oper Script Collection.
-#
-# Monitors the linked servers of one or more networks.
-# Requires you to be opered, because it looks at the server split/join
-# server notices.
-
 use strict;
+use warnings;
 use vars qw(%IRSSI);
-use POSIX;
 
+use POSIX;
 use Irssi;
 use Irssi::Irc;           # for redirect_register()
 use Irssi::TextUI;        # for statusbar

@@ -1,17 +1,9 @@
-# ho_gline.pl
-#
-# $Id: ho_gline.pl,v 1.10 2004/10/02 10:31:31 jvunder REL_0_3 $
-#
-# Part of the Hybrid Oper Script Collection.
-#
-# Makes it easier to request or support G-lines.
-#
-
 # TODO
 # - Add logging of G-lines to file.
-# - Add supporting based on the nick of the G-line requester
+# - Add supporting based on the nick!user@host mask of the G-line requester
 
 use strict;
+use warnings;
 use vars qw(%IRSSI);
 
 use Irssi;

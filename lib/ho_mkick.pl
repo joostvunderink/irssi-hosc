@@ -1,17 +1,8 @@
-# ho_mkick.pl
-#
-# $Id: ho_mkick.pl,v 1.6 2004/08/22 20:19:26 jvunder REL_0_1 $
-#
-# Part of the Hybrid Oper Script Collection.
-#
-# This provides a /MKICK command to masskick clients from a channel.
-#
 # TODO:
 # * support multiple kicks in 1 line if the ircd supports it.
 
-# ---------------------------------------------------------------------
-
 use strict;
+use warnings;
 use vars qw(%IRSSI);
 
 use Irssi;

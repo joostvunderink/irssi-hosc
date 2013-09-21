@@ -1,17 +1,6 @@
-# ho_operwall.pl
-#
-# $Id: ho_operwall.pl,v 1.15 2004/10/02 10:10:21 jvunder Exp $
-#
-# Part of the Hybrid Oper Script Collection (I hope)
-#
-# This script grabs all wallops starting OPERWALL and
-# reformats them with the "operwall" format, and sends them to
-# the 'operwall' window.
-#
-
-# ---------------------------------------------------------------------
-
 use strict;
+use warnings;
+
 use Irssi;
 use Irssi::Irc;
 use HOSC::again;

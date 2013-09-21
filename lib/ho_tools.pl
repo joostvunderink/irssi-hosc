@@ -1,13 +1,3 @@
-# ho_tools.pl
-#
-# $Id: ho_tools.pl,v 1.11 2004/08/22 20:20:57 jvunder REL_0_1 $
-#
-# Basic HOSC tools. This script is required for the HOSC, and will be
-# automatically loaded when any other HOSC script is loaded.
-#
-# Part of the Hybrid Oper Script Collection.
-#
-
 use strict;
 use warnings;
 

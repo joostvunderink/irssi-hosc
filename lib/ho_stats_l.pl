@@ -1,13 +1,5 @@
-# ho_stats_y.pl
-#
-# $Id: ho_stats_l.pl,v 1.3 2004/08/26 16:57:46 jvunder REL_0_1 $
-#
-# Part of the Hybrid Oper Script Collection
-#
-# Reformats /stats y output.
-#
-
 use strict;
+use warnings;
 use vars qw(%IRSSI);
 
 use Irssi;
