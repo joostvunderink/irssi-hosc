@@ -14,7 +14,7 @@
 # * Servers that 
 
 use strict;
-use vars qw($VERSION %IRSSI $SCRIPT_NAME);
+use vars qw(%IRSSI);
 
 use Irssi;
 use Irssi::Irc;           # necessary for redirect_register()
@@ -24,17 +24,10 @@ use HOSC::again 'HOSC::Tools';
 
 # ---------------------------------------------------------------------
 
-($VERSION) = '$Revision: 1.3 $' =~ / (\d+\.\d+) /;
-%IRSSI = (
-    authors        => 'Garion',
-    contact        => 'garion@efnet.nl',
-    name        => 'ho_sversion',
-    description    => 'Checks the version of all linked servers.',
-    license        => 'Public Domain',
-    url            => 'http://www.garion.org/irssi/hosc.php',
-    changed        => '07 August 2004 12:27:30',
+%IRSSI = HOSC::Base::ho_get_IRSSI(
+    name        => 'Server Versions',
+    description => 'Checks the version of all linked servers.',
 );
-$SCRIPT_NAME = 'Sversion';
 
 # Hashtable with server versions.
 # Key is the server name.
@@ -244,7 +237,7 @@ sub print_versions {
 
 # ---------------------------------------------------------------------
 
-ho_print_init_begin($SCRIPT_NAME);
+ho_print_init_begin();
 
 # The redirect for LINKS output.
 Irssi::Irc::Server::redirect_register('command cmd_sversion', 0, 0, 
@@ -274,13 +267,13 @@ Irssi::theme_register([
     '$[25]0 - $1',
 ]);
 
-ho_print_init_end($SCRIPT_NAME);
+ho_print_init_end();
 ho_print("Use /SVERSION HELP for help.");
 
 # ---------------------------------------------------------------------
 
 sub print_help {
-    ho_print_help('head', $SCRIPT_NAME);
+    ho_print_help('head', $IRSSI{name});
 
     ho_print_help('section', 'Description');
     ho_print_help("This script displays a list of the server versions ".

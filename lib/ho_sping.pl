@@ -10,7 +10,7 @@
 # /quote ping irc.efnet.nl :irc.choopa.net
 
 use strict;
-use vars qw($VERSION %IRSSI $SCRIPT_NAME);
+use vars qw(%IRSSI);
 
 use Irssi;
 use Irssi::Irc;           # necessary for redirect_register()
@@ -33,17 +33,10 @@ my $SLOW_TIME = 2;
 
 # ---------------------------------------------------------------------
 
-($VERSION) = '$Revision: 1.2 $' =~ / (\d+\.\d+) /;
-%IRSSI = (
-    authors        => 'Garion',
-    contact        => 'garion@efnet.nl',
-    name        => 'ho_sping',
-    description    => 'Checks the latency of all linked servers.',
-    license        => 'Public Domain',
-    url            => 'http://www.garion.org/irssi/hosc.php',
-    changed        => '07 August 2004 12:27:30',
+%IRSSI = HOSC::Base::ho_get_IRSSI(
+    name        => 'Server Ping',
+    description => 'Checks the latency of all linked servers.',
 );
-$SCRIPT_NAME = 'Sping';
 
 # Hashtable with server latency.
 # Key is the server name.
@@ -262,7 +255,7 @@ ho_print("Use /SPING HELP for help.");
 # ---------------------------------------------------------------------
 
 sub print_help {
-    ho_print_help('head', $SCRIPT_NAME);
+    ho_print_help('head', $IRSSI{name});
 
     ho_print_help('section', 'Description');
     ho_print_help("This script does a latency check ".

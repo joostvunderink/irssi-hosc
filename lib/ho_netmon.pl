@@ -9,7 +9,7 @@
 # server notices.
 
 use strict;
-use vars qw($VERSION %IRSSI $SCRIPT_NAME);
+use vars qw(%IRSSI);
 use POSIX;
 
 use Irssi;
@@ -24,17 +24,10 @@ use constant NETMON_FILENAME => 'netmon.data';
 
 # ---------------------------------------------------------------------
 
-($VERSION) = '$Revision: 1.4 $' =~ / (\d+\.\d+) /;
-%IRSSI = (
-    authors        => 'Garion',
-    contact        => 'garion@efnet.nl',
+%IRSSI = HOSC::Base::ho_get_IRSSI(
     name        => 'ho_netmon',
-    description    => 'Monitors the network for split servers.',
-    license        => 'Public Domain',
-    url            => 'http://www.garion.org/irssi/hosc.php',
-    changed        => '07 August 2004 12:27:30',
+    description => 'Monitors the network for split servers.',
 );
-$SCRIPT_NAME = 'Netmon';
 
 # Data hash.
 my %status;
@@ -644,7 +637,7 @@ sub print_syntax {
 }
 
 sub print_help {
-    ho_print_help('head', $SCRIPT_NAME);
+    ho_print_help('head', $IRSSI{name});
 
     print_syntax();
 

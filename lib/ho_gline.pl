@@ -12,7 +12,7 @@
 # - Add supporting based on the nick of the G-line requester
 
 use strict;
-use vars qw($VERSION %IRSSI $SCRIPT_NAME);
+use vars qw(%IRSSI);
 
 use Irssi;
 use Irssi::Irc;
@@ -23,16 +23,9 @@ use HOSC::again 'HOSC::Tools';
 
 # ---------------------------------------------------------------------
 
-($VERSION) = '$Revision: 1.10 $' =~ / (\d+\.\d+) /;
-$SCRIPT_NAME = 'G-line';
-%IRSSI = (
-    authors    => 'Garion',
-    contact    => 'garion@efnet.nl',
-    name    => 'ho_gline',
-    description    => 'Makes supporting G-lines on EFnet-like servers easier.',
-    license    => 'Public Domain',
-    url        => 'http://www.garion.org/irssi/hosc.php',
-    changed    => '6 August 2004 15:54:32',
+%IRSSI = HOSC::Base::ho_get_IRSSI(
+    name         => 'G-Line',
+    description  => 'Makes supporting G-lines on EFnet-like servers easier.',
 );
 
 # Hashref of G-lines. Contains $index => { details } pairs.
@@ -581,7 +574,7 @@ if (defined $owin) {
 # ---------------------------------------------------------------------
 
 sub print_help {
-    ho_print_help('head', $SCRIPT_NAME);
+    ho_print_help('head', $IRSSI{name});
 
     ho_print_help('section', 'Syntax');
     print_usage();

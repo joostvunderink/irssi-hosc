@@ -9,14 +9,35 @@ use vars qw[
     $HAVE_AGAIN
 ];
 
-($VERSION) = '$Revision: 1.8 $' =~ / (\d+\.\d+) /;
+$VERSION = '0.4';
 @ISA = qw[Exporter];
+
+my %BASE_IRSSI = (
+    authors        => 'Garion',
+    contact        => 'joost@vunderink.net',
+    name           => 'default_name',
+    description    => 'default description',
+    license        => 'Public Domain',
+    url            => 'https://github.com/joostvunderink/irssi-hosc/',
+    changed        => '2013-09-21 10:00:00+02',
+);
+
 @EXPORT = qw[
     ho_reload_modules
+    $VERSION
 ];
 
 @EXPORT_OK = qw[
 ];
+
+sub ho_get_IRSSI {
+    my %args = @_;
+    my %irssi = %BASE_IRSSI;
+    for my $key (keys %args) {
+        $irssi{$key} = $args{$key};
+    }
+    return %irssi;
+}
 
 sub ho_reload_modules {
     my ($print_progress) = @_;

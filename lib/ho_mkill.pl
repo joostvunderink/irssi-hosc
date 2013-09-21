@@ -9,7 +9,7 @@
 # ---------------------------------------------------------------------
 
 use strict;
-use vars qw($VERSION %IRSSI $SCRIPT_NAME);
+use vars qw(%IRSSI);
 
 use Irssi;
 use Irssi::Irc;
@@ -20,17 +20,10 @@ use Getopt::Long;
 
 # ---------------------------------------------------------------------
 
-($VERSION) = '$Revision: 1.8 $' =~ / (\d+\.\d+) /;
-%IRSSI = (
-    authors    => 'Garion',
-    contact    => 'garion@efnet.nl',
-    name    => 'ho_mkill.pl',
-    description    => 'Masskill command for a channel.',
-    license    => 'Public Domain',
-    url        => 'http://www.garion.org/irssi/',
-    changed    => '12 January 2003 21:53:46',
+%IRSSI = HOSC::Base::ho_get_IRSSI(
+    name        => 'Mass Kill',
+    description => 'Masskill command for a channel.',
 );
-$SCRIPT_NAME = 'Masskill';
 
 my $args;
 my $who_data;
@@ -241,7 +234,7 @@ sub process_arguments {
 
 # ---------------------------------------------------------------------
 
-ho_print_init_begin($SCRIPT_NAME);
+ho_print_init_begin();
 
 Irssi::command_bind('mkill', 'cmd_mkill');
 Irssi::settings_add_str('ho', 'ho_mkill_reason', 'Plonk!');
@@ -249,13 +242,13 @@ Irssi::settings_add_str('ho', 'ho_mkill_reason', 'Plonk!');
 Irssi::signal_add({ 'redir event_who_line' => \&event_who_line });
 Irssi::signal_add({ 'redir event_who_end'  => \&event_who_end });
 
-ho_print_init_end($SCRIPT_NAME);
+ho_print_init_end();
 ho_print("Use /MKILL HELP for help.");
 
 # ---------------------------------------------------------------------
 
 sub print_help {
-    ho_print_help('head', $SCRIPT_NAME);
+    ho_print_help('head', $IRSSI{name});
 
     ho_print_help('section', 'Syntax');
     ho_print_help('syntax', 'MKILL [-simulation] [-ops] [-opers] <channel> <[nick!]user@host> [<reason>]');

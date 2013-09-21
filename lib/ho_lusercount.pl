@@ -22,7 +22,7 @@
 # >> :irc.efnet.nl 255 Garion :I have 10970 clients and 2 servers
 
 use strict;
-use vars qw($VERSION %IRSSI $SCRIPT_NAME);
+use vars qw(%IRSSI);
 
 # Why doesn't use constant work in my irssi? *confused*
 #use constant MIN_HISTORY_DELTA_TIME => 10; # seconds
@@ -40,17 +40,10 @@ use HOSC::again 'HOSC::Tools';
 
 # ---------------------------------------------------------------------
 
-($VERSION) = '$Revision: 1.3 $' =~ / (\d+\.\d+) /;
-%IRSSI = (
-    authors    => 'Garion',
-    contact    => 'garion@efnet.nl',
-    name    => 'ho_lusercount',
-    description    => 'Statusbar item with number of clients, and client history graph.',
-    license    => 'Public Domain',
-    url        => 'http://www.garion.org/irssi/hosc.php',
-    changed    => '24 April 2004 22:24:08',
+%IRSSI = HOSC::Base::ho_get_IRSSI(
+    name        => 'Lusercount',
+    description => 'Statusbar item with number of clients, and client history graph.',
 );
-$SCRIPT_NAME = 'Lusercount';
 
 # ---------------------------------------------------------------------
 #
@@ -441,7 +434,7 @@ sub lusercount_sb {
 
 # ---------------------------------------------------------------------
 
-ho_print_init_begin($SCRIPT_NAME);
+ho_print_init_begin();
 
 Irssi::signal_add_first('server event', 'event_serverevent');
 Irssi::signal_add_first('event 255', 'event_lusers_output');
@@ -492,13 +485,13 @@ if (length(settings_get_str('ho_lusercount_networks')) == 0) {
         "a space separated list.");
 }
 
-ho_print_init_end($SCRIPT_NAME);
+ho_print_init_end();
 ho_print('Use /LUSERCOUNT HELP for help.');
 
 # ---------------------------------------------------------------------
 
 sub print_help {
-    ho_print_help('head', $SCRIPT_NAME);
+    ho_print_help('head', $IRSSI{name});
 
     ho_print_help('section', 'Syntax');
     ho_print_help('syntax', 'LUSERCOUNT HISTORY <tag> [<time>]');

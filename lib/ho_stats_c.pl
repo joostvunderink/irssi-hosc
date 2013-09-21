@@ -8,7 +8,7 @@
 #
 
 use strict;
-use vars qw($VERSION %IRSSI $SCRIPT_NAME);
+use vars qw(%IRSSI);
 
 use Irssi;
 use Irssi::Irc;
@@ -18,15 +18,12 @@ use HOSC::again 'HOSC::Tools';
 
 # ---------------------------------------------------------------------
 
-$SCRIPT_NAME = 'Stats C Reformatting';
-($VERSION) = '$Revision: 0.1 $' =~ / (\d+\.\d+) /;
-%IRSSI = (
+%IRSSI = HOSC::Base::ho_get_IRSSI(
     authors     => "Daniel 'dubkat' Reidy",
     contact     => 'dubkat@gmail.com',
+    url         => 'http://sigterm.us',
     name        => 'stats c',
     description => 'Reformats stats c',
-    license     => 'GPL v2',
-    url         => 'http://sigterm.us',
 );
 
 # shamelessly ripped from ho_stats_p.pl by Garion

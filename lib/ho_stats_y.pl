@@ -8,7 +8,7 @@
 #
 
 use strict;
-use vars qw($VERSION %IRSSI $SCRIPT_NAME);
+use vars qw(%IRSSI);
 
 use Irssi;
 use Irssi::Irc;
@@ -18,14 +18,11 @@ use HOSC::again 'HOSC::Tools';
 
 # ---------------------------------------------------------------------
 
-$SCRIPT_NAME = "Stats Y reformatting";
-($VERSION) = '$Revision: 1.6 $' =~ / (\d+\.\d+) /;
-%IRSSI = (
+%IRSSI = HOSC::Base::ho_get_IRSSI(
     authors     => 'JamesOff',
     contact     => 'james@jamesoff.net',
     name        => 'stats_y',
     description => 'Reformats stats y',
-    license     => 'GPL v2',
     url         => 'http://www.jamesoff.net',
 );
 

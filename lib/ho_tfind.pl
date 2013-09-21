@@ -11,7 +11,7 @@
 # * If the output window is closed halfway, the script crashes.
 
 use strict;
-use vars qw($VERSION %IRSSI $SCRIPT_NAME);
+use vars qw(%IRSSI);
 
 use Irssi;
 use Irssi::Irc;
@@ -21,16 +21,9 @@ use HOSC::again 'HOSC::Tools';
 import HOSC::Tools qw(test_regexps get_equality glob_to_regexp);
 use Getopt::Long;
 
-$SCRIPT_NAME = "Trace Find";
-($VERSION) = '$Revision: 1.16 $' =~ / (\d+\.\d+) /;
-%IRSSI = (
-    authors        => 'Garion',
-    contact        => 'garion@irssi.org',
-    name        => 'ho_tfind',
-    description    => 'Provides extended search functionality for the /TRACE command.',
-    license        => 'Public Domain',
-    url            => 'http://www.garion.org/irssi/hosc/',
-    changed        => '04 April 2004 12:34:38',
+%IRSSI = HOSC::Base::ho_get_IRSSI(
+    name        => 'Trace Find',
+    description => 'Provides extended search functionality for the /TRACE command.',
 );
 
 my ($stats, $args);
@@ -549,7 +542,7 @@ sub event_unknown_command {
 # ---------------------------------------------------------------------
 # Initialisation
 
-ho_print_init_begin($SCRIPT_NAME);
+ho_print_init_begin();
 
 Irssi::settings_add_bool('ho', 'ho_tfind_use_cache', 0);
 Irssi::settings_add_int('ho',  'ho_tfind_cache_expiry_time', 60);
@@ -599,7 +592,7 @@ Irssi::theme_register([
     '{nick $[-9]0}{comment %g$[!24]4}{chanhost_hilight $[-11]1@$[!38]2}{comment $3}',
 ]);
 
-ho_print_init_end($SCRIPT_NAME);
+ho_print_init_end();
 
 # ---------------------------------------------------------------------
 # Help.
@@ -613,7 +606,7 @@ sub print_usage {
 }
 
 sub print_help {
-    ho_print_help('head', $SCRIPT_NAME);
+    ho_print_help('head', $IRSSI{name});
 
     print_usage();
 

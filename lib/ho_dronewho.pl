@@ -1,9 +1,6 @@
-# ho_tfind.pl
-# $Id$
-#
-
 use strict;
-use vars qw($VERSION %IRSSI $SCRIPT_NAME);
+use warnings;
+use vars qw(%IRSSI);
 
 use Irssi;
 use HOSC::again;
@@ -11,16 +8,9 @@ use HOSC::again 'HOSC::Base';
 use HOSC::again 'HOSC::Tools';
 use POSIX;
 
-$SCRIPT_NAME = "Dronewho";
-($VERSION) = '$Revision: 1.16 $' =~ / (\d+\.\d+) /;
-%IRSSI = (
-    authors        => 'Garion',
-    contact        => 'garion@irssi.org',
-    name           => 'ho_dronewho',
-    description    => 'Logs /WHO #channel x to file.',
-    license        => 'Public Domain',
-    url            => 'http://www.garion.org/irssi/hosc/',
-    changed        => '04 April 2004 12:34:38',
+%IRSSI = HOSC::Base::ho_get_IRSSI(
+    name           => 'Dronewho',
+    description    => 'Logs /WHO #channel x to file (ircu only).',
 );
 
 my ($stats, $args, $outputdir, $channel, $searchargs);
@@ -93,7 +83,7 @@ sub event_public {
         }
     }
 
-    # Ignore siletnly if not allowed.
+    # Ignore silently if not allowed.
     return unless $allowed;
 
     if ($data =~ /$ownnick:\s+whox\s+(\S+)\s+(\S+)\s+(.+)/) {

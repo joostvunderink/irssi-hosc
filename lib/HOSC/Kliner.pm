@@ -11,8 +11,6 @@ use Irssi;
 use HOSC::again;
 use HOSC::again 'HOSC::Base';
 use HOSC::again 'HOSC::Tools';
-use vars qw( $VERSION );
-($VERSION) = '$Revision: 1.4 $' =~ / (\d+\.\d+) /;
 
 # ---------------------------------------------------------------------
 # Constructor.

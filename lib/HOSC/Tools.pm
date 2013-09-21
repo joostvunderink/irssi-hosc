@@ -12,12 +12,12 @@ require Exporter;
 use HOSC::Constants qw(
     OPERFLAGS
 );
+use HOSC::Base;
 
 use vars qw[ 
-    $VERSION @ISA @EXPORT @EXPORT_OK
+    @ISA @EXPORT @EXPORT_OK
 ];
 
-($VERSION) = '$Revision: 1.12 $' =~ / (\d+\.\d+) /;
 @ISA = qw[Exporter];
 @EXPORT = qw[
     get_window_by_name
@@ -63,7 +63,7 @@ BEGIN {
         '{line_start}%Cho $0%n $1',
 
         'ho_init_begin',
-        '{line_start}%CHybrid Oper Script Collection%n - $0 $1.',
+        '{line_start}%CHybrid Oper Script Collection%n $0 - $1.',
 
         'ho_init_end',
         '{line_start}%G$0%n loaded.',
@@ -203,9 +203,9 @@ sub ho_print_init_begin {
         return;
     }
     no strict 'refs';
-    my $version     = ${ $package."::VERSION" };
-    my $script_name = ${ $package."::SCRIPT_NAME" };
-    Irssi::printformat(MSGLEVEL_CLIENTCRAP, 'ho_init_begin', $script_name, $version);
+    my $version     = $HOSC::Base::VERSION;
+    my $script_name = ${ $package."::IRSSI" }{name};
+    Irssi::printformat(MSGLEVEL_CLIENTCRAP, 'ho_init_begin', $version, $script_name);
 }
 
 sub ho_print_init_end {
@@ -217,7 +217,7 @@ sub ho_print_init_end {
         return;
     }
     no strict 'refs';
-    my $script_name = ${ $package."::SCRIPT_NAME" };
+    my $script_name = ${ $package."::IRSSI" }{name};
     Irssi::printformat(MSGLEVEL_CLIENTCRAP, 'ho_init_end', $script_name);
 }
 

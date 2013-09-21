@@ -8,7 +8,7 @@
 #
 
 use strict;
-use vars qw($VERSION %IRSSI $SCRIPT_NAME);
+use vars qw(%IRSSI);
 
 use Irssi;
 use Irssi::Irc;
@@ -19,17 +19,9 @@ import HOSC::Tools qw(seconds_to_hms);
 
 # ---------------------------------------------------------------------
 
-$SCRIPT_NAME = 'Stats p reformat';
-($VERSION) = '$Revision: 1.7 $' =~ / (\d+\.\d+) /;
-my ($changed) = '$Id: ho_stats_p.pl,v 1.7 2004/09/05 18:48:14 jvunder REL_0_1 $' =~ / (\d+\/\d+\/\d+ \d+:\d+:\d+) /;
-%IRSSI = (
-    authors     => 'Garion',
-    contact     => 'garion@efnet.nl',
+%IRSSI = HOSC::Base::ho_get_IRSSI(
     name        => 'ho_stats_p',
     description => 'Reformats stats p',
-    license     => 'Public Domain',
-    url         => 'http://www.garion.org/irssi/hosc/',
-    changed     => $changed,
 );
 
 my %stats_p_data;

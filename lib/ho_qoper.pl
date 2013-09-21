@@ -9,24 +9,18 @@
 #
 
 use strict;
+use warnings;
 use Irssi;
 use HOSC::again;
 use HOSC::again 'HOSC::Base';
 use HOSC::again 'HOSC::Tools';
 import HOSC::Tools qw(get_named_token);
 
-use vars qw[$VERSION %IRSSI $SCRIPT_NAME];
+use vars qw[%IRSSI];
 
-$SCRIPT_NAME = "Qoper";
-($VERSION) = '$Revision: 1.8 $' =~ / (\d+\.\d+) /;
-%IRSSI = (
-    authors     => 'Garion',
-    contact     => 'garion@irssi.org',
-    name        => 'ho_qoper',
+%IRSSI = HOSC::Base::ho_get_IRSSI(
+    name        => 'Quick Oper',
     description => 'Automatic opering on connect.',
-    license     => 'Public Domain',
-    url         => 'http://www.garion.org/irssi/hosc/',
-    changed     => '04 April 2004 12:34:38',
 );
 
 my $main_password;
@@ -275,7 +269,7 @@ sub print_usage {
 }
 
 sub print_help {
-    ho_print_help('head', $SCRIPT_NAME);
+    ho_print_help('head', $IRSSI{name});
 
     print_usage();
 

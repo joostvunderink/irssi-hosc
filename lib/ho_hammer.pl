@@ -9,7 +9,7 @@
 # TODO: code HOSC::Kliner and use it.
 
 use strict;
-use vars qw($VERSION %IRSSI $SCRIPT_NAME);
+use vars qw(%IRSSI);
 
 use Irssi;
 use Irssi::Irc;
@@ -21,17 +21,10 @@ import HOSC::Tools qw{is_server_notice};
 
 # ---------------------------------------------------------------------
 
-($VERSION) = '$Revision: 1.5 $' =~ / (\d+\.\d+) /;
-%IRSSI = (
-    authors    => 'Garion',
-    contact    => 'garion@efnet.nl',
-    name    => 'ho_hammer',
-    description    => 'Looks for hammering clients and acts upon them.',
-    license    => 'Public Domain',
-    url        => 'http://www.garion.org/irssi/hosc.php',
-    changed    => '19 January 2003 13:07:07',
+%IRSSI = HOSC::Base::ho_get_IRSSI(
+    name        => 'Hammer',
+    description => 'Looks for hammering clients and acts upon them.',
 );
-$SCRIPT_NAME = 'Hammer';
 
 # Hashtable with connection times per host
 # Key is the host
@@ -268,7 +261,7 @@ ho_print("Use /HAMMER HELP for help.");
 # ---------------------------------------------------------------------
 
 sub print_help {
-    ho_print_help('head', $SCRIPT_NAME);
+    ho_print_help('head', $IRSSI{name});
 
     ho_print_help('section', 'Description');
     ho_print_help("This script tracks reconnecting clients and can take action on ".

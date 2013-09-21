@@ -6,23 +6,16 @@
 # Part of the Hybrid Oper Script Collection.
 
 use strict;
-use vars qw($VERSION %IRSSI $SCRIPT_NAME);
+use vars qw(%IRSSI);
 
 use Irssi;
 use HOSC::again;
 use HOSC::again 'HOSC::Base';
 use HOSC::again 'HOSC::Tools';
 
-$SCRIPT_NAME = 'Killreconnect';
-($VERSION) = '$Revision: 1.6 $' =~ / (\d+\.\d+) /;
-%IRSSI = (
-    authors        => 'Garion',
-    contact        => 'garion@irssi.org',
-    name        => 'ho_killreconnect',
-    description    => 'Reconnects if you are killed by an oper.',
-    license        => 'Public Domain',
-    url            => 'http://www.garion.org/irssi/hosc/',
-    changed        => '04 April 2004 12:34:38',
+%IRSSI = HOSC::Base::ho_get_IRSSI(
+    name        => 'Killreconnect',
+    description => 'Reconnects if you are killed by an oper.',
 );
 
 ho_print_init_begin();

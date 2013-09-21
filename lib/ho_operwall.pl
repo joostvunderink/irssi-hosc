@@ -19,19 +19,15 @@ use HOSC::again 'HOSC::Base';
 use HOSC::again 'HOSC::Tools';
 import HOSC::Tools qw{get_named_token};
 
-use vars qw[$VERSION %IRSSI $SCRIPT_NAME];
+use vars qw[%IRSSI];
 
-$SCRIPT_NAME = 'Operwall';
-($VERSION) = '$Revision: 1.15 $' =~ / (\d+\.\d+) /;
-%IRSSI = (
+%IRSSI = HOSC::Base::ho_get_IRSSI(
     authors     => 'James Seward',
     contact     => 'james@jamesoff.net',
     name        => 'ho_operwall',
     description => 'Sends operwall and locops messages named windows.',
     license     => 'Public Domain',
     url         => 'http://www.jamesoff.net/irc',
-    changed     => '06/04/2004 08:15',
-    changes     => 'v1.2 - fixed typo',
 );
 
 # ---------------------------------------------------------------------
@@ -431,7 +427,7 @@ sub print_usage {
 }
 
 sub print_help {
-    ho_print_help('head', $SCRIPT_NAME);
+    ho_print_help('head', $IRSSI{name});
 
     print_usage();
 

@@ -11,22 +11,16 @@
 use strict;
 use warnings;
 
-use vars qw[ $VERSION %IRSSI];
+use vars qw[%IRSSI];
 use Irssi;
 
 use HOSC::again;
 use HOSC::again 'HOSC::Base';
 use HOSC::again 'HOSC::Tools';
 
-($VERSION) = '$Revision: 1.11 $' =~ / (\d+\.\d+) /;
-%IRSSI = (
-    authors    => 'Garion',
-    contact    => 'garion@efnet.nl',
-    name       => 'ho_tools.pl',
-    description    => 'Required HOSC Tools.',
-    license    => 'Public Domain',
-    url        => 'http://www.garion.org/irssi/',
-    changed    => '24 April 2004 22:48:36',
+%IRSSI = HOSC::Base::ho_get_IRSSI(
+    name        => 'HOSC Tools',
+    description => 'Required HOSC Tools.',
 );
 
 # ---------------------------------------------------------------------

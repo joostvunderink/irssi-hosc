@@ -12,7 +12,7 @@
 # ---------------------------------------------------------------------
 
 use strict;
-use vars qw($VERSION %IRSSI $SCRIPT_NAME);
+use vars qw(%IRSSI);
 
 use Irssi;
 use Irssi::Irc;
@@ -23,17 +23,10 @@ use Getopt::Long;
 
 # ---------------------------------------------------------------------
 
-($VERSION) = '$Revision: 1.6 $' =~ / (\d+\.\d+) /;
-%IRSSI = (
-    authors    => 'Garion',
-    contact    => 'garion@efnet.nl',
-    name    => 'ho_mkick.pl',
-    description    => 'Masskick command for a channel.',
-    license    => 'Public Domain',
-    url        => 'http://www.garion.org/irssi/',
-    changed    => '25 May 2004 22:53:46',
+%IRSSI = HOSC::Base::ho_get_IRSSI(
+    name        => 'Mass Kick',
+    description => 'Masskick command for a channel.',
 );
-$SCRIPT_NAME = 'Masskick';
 
 
 # ---------------------------------------------------------------------
@@ -188,20 +181,20 @@ sub process_arguments {
 
 # ---------------------------------------------------------------------
 
-ho_print_init_begin($SCRIPT_NAME);
+ho_print_init_begin();
 
 Irssi::command_bind('mkick', 'cmd_mkick');
 
 Irssi::settings_add_str('ho',  'ho_mkick_reason',    'Plonk!');
 Irssi::settings_add_bool('ho', 'ho_mkick_can_flood', 0);
 
-ho_print_init_end($SCRIPT_NAME);
+ho_print_init_end();
 ho_print("Use /MKICK HELP for help.");
 
 # ---------------------------------------------------------------------
 
 sub print_help {
-    ho_print_help('head', $SCRIPT_NAME);
+    ho_print_help('head', $IRSSI{name});
 
     ho_print_help('section', 'Syntax');
     ho_print_help('syntax', 'MKICK [-simulation] [-ops] [-voices] <channel> <[nick!]user@host> [<reason>]');

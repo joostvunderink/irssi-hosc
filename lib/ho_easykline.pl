@@ -8,7 +8,7 @@
 #
 
 use strict;
-use vars qw($VERSION %IRSSI $SCRIPT_NAME);
+use vars qw(%IRSSI);
 
 use Irssi;
 use Irssi::Irc;           # necessary for redirect_register()
@@ -16,16 +16,9 @@ use HOSC::again;
 use HOSC::again 'HOSC::Base';
 use HOSC::again 'HOSC::Tools';
 
-$SCRIPT_NAME = 'easykline';
-($VERSION) = '$Revision: 1.4 $' =~ / (\d+\.\d+) /;
-%IRSSI = (
-    authors     => 'Garion',
-    contact        => 'garion@efnet.nl',
-    name        => 'ho_easykline',
+%IRSSI = HOSC::Base::ho_get_IRSSI(
+    name        => 'EasyKline',
     description => 'Makes K-lining drones as easy as cake.',
-    license        => 'Public Domain',
-    url            => 'http://www.garion.org/irssi/hosc.php',
-    changed        => '25/02/2003 19:29',
 );
 
 # Master switch to prevent accidents.

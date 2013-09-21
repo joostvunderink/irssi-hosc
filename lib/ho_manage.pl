@@ -7,7 +7,7 @@
 # Manages all HOSC scripts.
 
 use strict;
-use vars qw($VERSION %IRSSI $SCRIPT_NAME);
+use vars qw(%IRSSI);
 
 use Irssi;
 use HOSC::again;
@@ -28,17 +28,10 @@ my $VERSION_FILE_URI = 'http://garion.org/hosc/data/hosc_versions.txt';
 
 # ---------------------------------------------------------------------
 
-($VERSION) = '$Revision: 1.1 $' =~ / (\d+\.\d+) /;
-%IRSSI = (
-    authors        => 'Garion',
-    contact        => 'garion@efnet.nl',
-    name        => 'ho_manage',
-    description    => 'Manages all HOSC scripts.',
-    license        => 'Public Domain',
-    url            => 'http://www.garion.org/irssi/hosc.php',
-    changed        => '07 August 2004 12:27:30',
+%IRSSI = HOSC::Base::ho_get_IRSSI(
+    name        => 'HOSC Manager',
+    description => 'Manages all HOSC scripts.',
 );
-$SCRIPT_NAME = 'Manage';
 
 # ---------------------------------------------------------------------
 
@@ -127,7 +120,7 @@ ho_print("Use /MANAGE HELP for help.");
 # ---------------------------------------------------------------------
 
 sub print_help {
-    ho_print_help('head', $SCRIPT_NAME);
+    ho_print_help('head', $IRSSI{name});
 
     ho_print_help('section', 'Description');
     ho_print_help("This script can be used to keep your HOSC collection ".

@@ -8,7 +8,7 @@
 #
 
 use strict;
-use vars qw($VERSION %IRSSI $SCRIPT_NAME);
+use vars qw(%IRSSI);
 
 use Irssi;
 use Irssi::Irc;
@@ -18,15 +18,12 @@ use HOSC::again 'HOSC::Tools';
 
 # ---------------------------------------------------------------------
 
-$SCRIPT_NAME = 'Stats L reformatting';
-($VERSION) = '$Revision: 1.3 $' =~ / (\d+\.\d+) /;
-%IRSSI = (
+%IRSSI = HOSC::Base::ho_get_IRSSI(
     authors     => 'JamesOff',
     contact     => 'james@jamesoff.net',
+    url         => 'http://www.jamesoff.net',
     name        => 'stats l',
     description => 'Reformats stats l and stats ?',
-    license     => 'GPL v2',
-    url         => 'http://www.jamesoff.net',
 );
 
 # Temporary variables to be able to print the output of two lines in a

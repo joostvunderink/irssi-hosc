@@ -3,8 +3,6 @@
 package HOSC::again;
 use Carp;
 
-our $VERSION = '0.02';
-
 my %mtimes;
 
 sub require_again {
