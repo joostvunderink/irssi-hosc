@@ -23,12 +23,11 @@ scripts, but also a few modules which are shared by several scripts. This is how
 you should install HOSC:
 
 - ~/.irssi/scripts/ho_*.pl
-- ~/.irssi/scripts/HOSC/*.pm
+- ~/.irssi/scripts/Irssi/HOSC/*.pm
 
 This can be done by the following steps:
 
     git clone https://github.com/joostvunderink/irssi-hosc.git
-    cd irssi-hosc/lib
-    mkdir ~/.irssi/scripts
-    cp -r * ~/.irssi/scripts
+    cd irssi-hosc
+    bin/install.pl
 
