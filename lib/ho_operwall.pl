@@ -3,14 +3,14 @@ use warnings;
 
 use Irssi;
 use Irssi::Irc;
-use HOSC::again;
-use HOSC::again 'HOSC::Base';
-use HOSC::again 'HOSC::Tools';
-import HOSC::Tools qw{get_named_token};
+use Irssi::HOSC::again;
+use Irssi::HOSC::again 'Irssi::HOSC::Base';
+use Irssi::HOSC::again 'Irssi::HOSC::Tools';
+import Irssi::HOSC::Tools qw{get_named_token};
 
 use vars qw[%IRSSI];
 
-%IRSSI = HOSC::Base::ho_get_IRSSI(
+%IRSSI = Irssi::HOSC::Base::ho_get_IRSSI(
     authors     => 'James Seward',
     contact     => 'james@jamesoff.net',
     name        => 'ho_operwall',

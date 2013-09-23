@@ -4,15 +4,15 @@ use vars qw(%IRSSI);
 
 use Irssi;
 use Irssi::Irc;
-use HOSC::again;
-use HOSC::again 'HOSC::Base';
-use HOSC::again 'HOSC::Tools';
-use HOSC::again 'HOSC::Kliner';
-import HOSC::Tools qw{is_server_notice};
+use Irssi::HOSC::again;
+use Irssi::HOSC::again 'Irssi::HOSC::Base';
+use Irssi::HOSC::again 'Irssi::HOSC::Tools';
+use Irssi::HOSC::again 'Irssi::HOSC::Kliner';
+import Irssi::HOSC::Tools qw{is_server_notice};
 
 # ---------------------------------------------------------------------
 
-%IRSSI = HOSC::Base::ho_get_IRSSI(
+%IRSSI = Irssi::HOSC::Base::ho_get_IRSSI(
     name        => 'Hammer',
     description => 'Looks for hammering clients and acts upon them.',
 );
@@ -25,7 +25,7 @@ my %conntimes;
 # The last time the connection hash has been cleaned (unix timestamp)
 my $conntimes_last_cleaned = 0;
 
-my $kliner = HOSC::Kliner->new();
+my $kliner = Irssi::HOSC::Kliner->new();
 
 # ---------------------------------------------------------------------
 # A Server Event has occurred. Check if it is a server NOTICE;

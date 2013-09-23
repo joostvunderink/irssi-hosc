@@ -3,11 +3,11 @@ use warnings;
 use vars qw(%IRSSI);
 
 use Irssi;
-use HOSC::again;
-use HOSC::again 'HOSC::Base';
-use HOSC::again 'HOSC::Tools';
+use Irssi::HOSC::again;
+use Irssi::HOSC::again 'Irssi::HOSC::Base';
+use Irssi::HOSC::again 'Irssi::HOSC::Tools';
 
-%IRSSI = HOSC::Base::ho_get_IRSSI(
+%IRSSI = Irssi::HOSC::Base::ho_get_IRSSI(
     name        => 'Killreconnect',
     description => 'Reconnects if you are killed by an oper.',
 );

@@ -4,11 +4,11 @@ use vars qw(%IRSSI);
 
 use Irssi;
 use Irssi::Irc;           # necessary for redirect_register()
-use HOSC::again;
-use HOSC::again 'HOSC::Base';
-use HOSC::again 'HOSC::Tools';
+use Irssi::HOSC::again;
+use Irssi::HOSC::again 'Irssi::HOSC::Base';
+use Irssi::HOSC::again 'Irssi::HOSC::Tools';
 
-%IRSSI = HOSC::Base::ho_get_IRSSI(
+%IRSSI = Irssi::HOSC::Base::ho_get_IRSSI(
     name        => 'EasyKline',
     description => 'Makes K-lining drones as easy as cake.',
 );

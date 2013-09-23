@@ -1,4 +1,4 @@
-package HOSC::Kliner;
+package Irssi::HOSC::Kliner;
 
 # $Id: Kliner.pm,v 1.4 2004/08/21 11:28:59 jvunder REL_0_1 $
 #
@@ -8,9 +8,9 @@ package HOSC::Kliner;
 
 use strict;
 use Irssi;
-use HOSC::again;
-use HOSC::again 'HOSC::Base';
-use HOSC::again 'HOSC::Tools';
+use Irssi::HOSC::again;
+use Irssi::HOSC::again 'Irssi::HOSC::Base';
+use Irssi::HOSC::again 'Irssi::HOSC::Tools';
 
 # ---------------------------------------------------------------------
 # Constructor.

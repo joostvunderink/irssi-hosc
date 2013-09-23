@@ -1,6 +1,6 @@
 # This is a copy of Juerd's again.pm, changed to fit HOSC.
 
-package HOSC::again;
+package Irssi::HOSC::again;
 use Carp;
 
 my %mtimes;

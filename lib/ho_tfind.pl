@@ -10,13 +10,13 @@ use vars qw(%IRSSI);
 
 use Irssi;
 use Irssi::Irc;
-use HOSC::again;
-use HOSC::again 'HOSC::Base';
-use HOSC::again 'HOSC::Tools';
-import HOSC::Tools qw(test_regexps get_equality glob_to_regexp);
+use Irssi::HOSC::again;
+use Irssi::HOSC::again 'Irssi::HOSC::Base';
+use Irssi::HOSC::again 'Irssi::HOSC::Tools';
+import Irssi::HOSC::Tools qw(test_regexps get_equality glob_to_regexp);
 use Getopt::Long;
 
-%IRSSI = HOSC::Base::ho_get_IRSSI(
+%IRSSI = Irssi::HOSC::Base::ho_get_IRSSI(
     name        => 'Trace Find',
     description => 'Provides extended search functionality for the /TRACE command.',
 );

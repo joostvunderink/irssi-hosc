@@ -1,8 +1,8 @@
-package HOSC::Base;
+package Irssi::HOSC::Base;
 
 use strict;
 require Exporter;
-use HOSC::again;
+use Irssi::HOSC::again;
 
 use vars qw[
     $VERSION @ISA @EXPORT @EXPORT_OK

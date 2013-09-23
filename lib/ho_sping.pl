@@ -8,9 +8,9 @@ use vars qw(%IRSSI);
 
 use Irssi;
 use Irssi::Irc;           # necessary for redirect_register()
-use HOSC::again;
-use HOSC::again 'HOSC::Base';
-use HOSC::again 'HOSC::Tools';
+use Irssi::HOSC::again;
+use Irssi::HOSC::again 'Irssi::HOSC::Base';
+use Irssi::HOSC::again 'Irssi::HOSC::Tools';
 
 eval {
     require Time::HiRes;
@@ -27,7 +27,7 @@ my $SLOW_TIME = 2;
 
 # ---------------------------------------------------------------------
 
-%IRSSI = HOSC::Base::ho_get_IRSSI(
+%IRSSI = Irssi::HOSC::Base::ho_get_IRSSI(
     name        => 'Server Ping',
     description => 'Checks the latency of all linked servers.',
 );

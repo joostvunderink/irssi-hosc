@@ -1,6 +1,6 @@
 #! perl
 
-package HOSC::Constants;
+package Irssi::HOSC::Constants;
 
 use strict;
 use warnings;

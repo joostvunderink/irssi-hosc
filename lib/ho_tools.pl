@@ -4,11 +4,11 @@ use warnings;
 use vars qw[%IRSSI];
 use Irssi;
 
-use HOSC::again;
-use HOSC::again 'HOSC::Base';
-use HOSC::again 'HOSC::Tools';
+use Irssi::HOSC::again;
+use Irssi::HOSC::again 'Irssi::HOSC::Base';
+use Irssi::HOSC::again 'Irssi::HOSC::Tools';
 
-%IRSSI = HOSC::Base::ho_get_IRSSI(
+%IRSSI = Irssi::HOSC::Base::ho_get_IRSSI(
     name        => 'HOSC Tools',
     description => 'Required HOSC Tools.',
 );
@@ -29,7 +29,7 @@ sub cmd_ho {
     my ($data, $server, $item) = @_;
 
     if ($data =~ /^\s*$/) {
-        HOSC::Tools::ho_print("Use /HO HELP for help.");
+        Irssi::HOSC::Tools::ho_print("Use /HO HELP for help.");
         return;
     }
     $data =~ s/\s+$//;
@@ -69,7 +69,7 @@ sub cmd_ho_help {
 sub cmd_ho_status {
     my ($data, $server, $item) = @_;
 
-    HOSC::Tools::ho_print_status();
+    Irssi::HOSC::Tools::ho_print_status();
 }
 
 sub cmd_ho_reload_modules {

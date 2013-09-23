@@ -7,9 +7,10 @@ use Getopt::Long;
 use File::Copy;
 use File::Basename;
 
-use File::Path qw(make_path);
+use File::Path qw(make_path remove_tree);
 
-use constant MODULES_DIR => 'HOSC';
+use constant MODULES_DIR => 'Irssi/HOSC';
+use constant OLD_MODULES_DIR => 'HOSC';
 
 run();
 
@@ -99,6 +100,12 @@ sub get_version {
 sub install_hosc {
     my ($dir) = @_;
 
+    my $old_modules_dir = sprintf("%s/%s", $dir, OLD_MODULES_DIR);
+    if (-e $old_modules_dir) {
+        print "Cleaning up old modules dir $old_modules_dir\n";
+        remove_tree($old_modules_dir);
+    }
+
     if (!-d $dir) {
         print "Creating $dir\n";
         make_path($dir);
@@ -107,7 +114,7 @@ sub install_hosc {
     my $modules_dir = sprintf "%s/%s", $dir, MODULES_DIR;
     if (!-d $modules_dir) {
         print "Creating $modules_dir\n";
-        mkdir($modules_dir);
+        make_path($modules_dir);
     }
 
     opendir my $dh, 'lib';
@@ -118,7 +125,7 @@ sub install_hosc {
         }
     }
 
-    opendir $dh, 'lib/HOSC';
+    opendir $dh, sprintf("lib/%s", MODULES_DIR);
     while (my $filename = readdir($dh)) {
         if ($filename =~ /\.pm$/) {
             print "Installing $filename\n";

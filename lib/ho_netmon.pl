@@ -6,16 +6,16 @@ use POSIX;
 use Irssi;
 use Irssi::Irc;           # for redirect_register()
 use Irssi::TextUI;        # for statusbar
-use HOSC::again;
-use HOSC::again 'HOSC::Base';
-use HOSC::again 'HOSC::Tools';
-import HOSC::Tools qw{is_server_notice seconds_to_dhms};
+use Irssi::HOSC::again;
+use Irssi::HOSC::again 'Irssi::HOSC::Base';
+use Irssi::HOSC::again 'Irssi::HOSC::Tools';
+import Irssi::HOSC::Tools qw{is_server_notice seconds_to_dhms};
 
 use constant NETMON_FILENAME => 'netmon.data';
 
 # ---------------------------------------------------------------------
 
-%IRSSI = HOSC::Base::ho_get_IRSSI(
+%IRSSI = Irssi::HOSC::Base::ho_get_IRSSI(
     name        => 'ho_netmon',
     description => 'Monitors the network for split servers.',
 );

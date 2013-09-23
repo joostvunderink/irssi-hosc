@@ -1,4 +1,4 @@
-package HOSC::Tools;
+package Irssi::HOSC::Tools;
 
 # Known annoyances:
 # * When adding an extra format, you must restart irssi, because you can't
@@ -9,10 +9,10 @@ use strict;
 use Irssi;
 require Exporter;
 
-use HOSC::Constants qw(
+use Irssi::HOSC::Constants qw(
     OPERFLAGS
 );
-use HOSC::Base;
+use Irssi::HOSC::Base;
 
 use vars qw[ 
     @ISA @EXPORT @EXPORT_OK

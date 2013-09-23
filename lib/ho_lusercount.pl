@@ -29,13 +29,13 @@ use Irssi qw(
     settings_add_int settings_add_str settings_add_bool
 );
 use Irssi::TextUI; # for statusbar
-use HOSC::again;
-use HOSC::again 'HOSC::Base';
-use HOSC::again 'HOSC::Tools';
+use Irssi::HOSC::again;
+use Irssi::HOSC::again 'Irssi::HOSC::Base';
+use Irssi::HOSC::again 'Irssi::HOSC::Tools';
 
 # ---------------------------------------------------------------------
 
-%IRSSI = HOSC::Base::ho_get_IRSSI(
+%IRSSI = Irssi::HOSC::Base::ho_get_IRSSI(
     name        => 'Lusercount',
     description => 'Statusbar item with number of clients, and client history graph.',
 );
