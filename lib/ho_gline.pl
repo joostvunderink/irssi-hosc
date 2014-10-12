@@ -36,7 +36,7 @@ sub event_serverevent {
     # as well.
     # TODO: we need to check if the source is indeed OUR server. Problems
     # appeared when getting a notice from another server.
-    return if length($hostmask) > 0;
+    return if (defined $hostmask) && length($hostmask) > 0;
 
     my $ownnick = $server->{nick};
 
