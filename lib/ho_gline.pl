@@ -269,6 +269,10 @@ sub get_new_index {
 
     my @keys = sort { $a <=> $b } keys %$glines;
 
+    if (!@keys) {
+        @keys = (0);
+    }
+
     return (pop @keys) + 1;
 }
 
