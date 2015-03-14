@@ -133,7 +133,7 @@ sub cmd_qoper_operup {
         return;
     }
 
-    my $server = Irssi::server_find_tag($tag);
+    $server = Irssi::server_find_tag($tag);
     if (!$server) {
         ho_print("You are not connected to tag '$tag'.");
         return;

@@ -102,7 +102,7 @@ sub cmd_mkill {
 sub event_who_line {
     my ($server, $data, $nick, $address) = @_;
     my @tokens = split / /, $data;
-    my $nick = $tokens[5];
+    $nick = $tokens[5];
     $who_data->{$nick} = {
         user     => $tokens[2],
         host     => $tokens[3],

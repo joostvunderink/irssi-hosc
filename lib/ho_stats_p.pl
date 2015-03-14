@@ -139,7 +139,7 @@ sub print_stats_p_data {
     }
 
     # Print the TCM(s)
-    if ($stats_p_num_tcm > 0) {
+    if (defined $stats_p_num_tcm && $stats_p_num_tcm > 0) {
         Irssi::printformat(MSGLEVEL_CRAP, 'ho_stats_p_head_tcm',
             $servername);
         for my $opernick (keys %stats_p_data) {
@@ -150,7 +150,7 @@ sub print_stats_p_data {
     }
 
     # Print the BOPM(s)
-    if ($stats_p_num_bopm > 0) {
+    if (defined $stats_p_num_bopm && $stats_p_num_bopm > 0) {
         Irssi::printformat(MSGLEVEL_CRAP, 'ho_stats_p_head_proxy',
             $servername);
         foreach my $opernick (keys %stats_p_data) {
@@ -161,7 +161,7 @@ sub print_stats_p_data {
     }
 
     # Print the DDD(s)
-    if ($stats_p_num_ddd > 0) {
+    if (defined $stats_p_num_ddd && $stats_p_num_ddd > 0) {
             Irssi::printformat(MSGLEVEL_CRAP, 'ho_stats_p_head_ddd',
                 $servername);
         for my $opernick (keys %stats_p_data) {

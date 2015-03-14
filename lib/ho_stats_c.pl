@@ -60,7 +60,7 @@ sub print_stats_c_data {
     for my $server_data (sort keys %stats_c_data) {
         my $long_flags = '';
         for my $char (split //, $stats_c_data{$server_data}->{'flags'}) {
-            $long_flags .= $server_flags{$char} . " ";
+            $long_flags .= $server_flags{$char} . " " unless (!defined $server_flags{$char});
         }
         Irssi::printformat(MSGLEVEL_CRAP, 'ho_stats_c_line',
             $stats_c_data{$server_data}->{'server'},

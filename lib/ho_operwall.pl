@@ -347,7 +347,7 @@ sub print_status {
     }
 
     ho_print("Recv. LO.  Network     Target window");
-    my $windows = Irssi::settings_get_str("ho_operwall_locops_windows");
+    $windows = Irssi::settings_get_str("ho_operwall_locops_windows");
     for my $dest (split /\s+/, $windows) {
         if ($dest =~ /^([^:]+):(.+)$/) {
             $target_windows{$2} = 1;
